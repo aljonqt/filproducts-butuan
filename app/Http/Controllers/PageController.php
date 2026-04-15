@@ -2451,7 +2451,7 @@ file_put_contents($pdfPath,$pdfContent);
    FIXED BRANCH (BUTUAN ONLY)
 ========================== */
 $branch = 'Butuan';
-$branchRecipient = 'info.cyg@filproducts.ph';
+$branchRecipient = 'it.butuan@filproducts.ph';
 
 /* =========================
    DATA
