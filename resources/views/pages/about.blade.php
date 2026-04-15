@@ -15,7 +15,7 @@
 
 <h1>About Fil Products</h1>
 
-<p>Delivering reliable internet and cable television services across Eastern Visayas.</p>
+<p>Delivering reliable internet and cable television services across Butuan .</p>
 
 </div>
 
@@ -24,11 +24,11 @@
 
 <div class="about-text">
 
-<h2>FIL PRODUCTS EASTERN VISAYAS.</h2>
+<h2>FIL PRODUCTS BUTUAN.</h2>
 
 <p>
-Fil Products Eastern Visayas, is a trusted provider of
-high-speed internet and cable television services in Eastern Visayas. We are committed
+Fil Products Butuan, is a trusted provider of
+high-speed internet and cable television services in Butuan . We are committed
 to delivering reliable connectivity, modern technology, and exceptional
 customer service to homes, businesses, and communities.
 </p>
@@ -38,12 +38,6 @@ Our goal is to ensure that every subscriber enjoys fast, stable, and
 affordable digital services that empower communication, entertainment,
 education, and business growth.
 </p>
-
-</div>
-
-<div class="about-image">
-
-<img src="{{ asset('images/filproducts.jpg') }}" alt="Fil Products">
 
 </div>
 
@@ -76,7 +70,7 @@ experience.
 <h3>Our Vision</h3>
 
 <p>
-To become the leading connectivity provider in Eastern Visayas by delivering
+To become the leading connectivity provider in Butuan  by delivering
 innovative digital services and empowering communities through technology.
 </p>
 
