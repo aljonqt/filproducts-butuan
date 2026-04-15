@@ -831,8 +831,10 @@ form.addEventListener("submit", function(e){
             if (invalidFile) {
                 alert("Please fix file size errors before submitting.");
                 return;
-}
-
+                }
+                if (!checkTotalSize()) {
+                    return;
+                }
                 form.submit();
 
             });
