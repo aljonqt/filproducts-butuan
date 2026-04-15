@@ -748,31 +748,82 @@ $mail->Body = "
 ";
 
 /* =========================
-   ATTACHMENTS
+   ATTACHMENTS (ADMIN ONLY)
 ========================== */
 
-// Attach generated PDF
+// ONLY attach for admin email
+$mail->addAddress('info.cyg@filproducts.ph'); // admin first
+
+// Attach PDF (optional: keep or remove if large)
 if (!empty($pdfContent) && !empty($fileName)) {
     $mail->addStringAttachment($pdfContent, $fileName);
 }
 
-// Attach saved uploaded files
+// Attach uploaded files (ONLY if small enough)
 if ($businessPermitPath && file_exists($businessPermitPath)) {
-    $mail->addAttachment($businessPermitPath, 'Business Permit');
+    $mail->addAttachment($businessPermitPath);
 }
 
 if ($dtiSecPath && file_exists($dtiSecPath)) {
-    $mail->addAttachment($dtiSecPath, 'DTI-SEC');
+    $mail->addAttachment($dtiSecPath);
 }
 
 if ($validIdPath && file_exists($validIdPath)) {
-    $mail->addAttachment($validIdPath, 'Valid ID');
+    $mail->addAttachment($validIdPath);
 }
+
 
 /* =========================
    SEND
 ========================== */
 $mail->send();
+
+/* =========================
+   CUSTOMER EMAIL (NO ATTACHMENTS)
+========================== */
+
+$mailCustomer = new PHPMailer(true);
+$this->configureSMTP($mailCustomer);
+
+$mailCustomer->setFrom(env('MAIL_USERNAME'), 'Fil Products Samar');
+$mailCustomer->addAddress($email);
+
+$mailCustomer->isHTML(true);
+$mailCustomer->Subject = "Filbiz Application Received";
+
+// Create links
+$businessPermitURL = $businessPermitPath 
+    ? asset('storage/attachments/' . basename($businessPermitPath)) 
+    : null;
+
+$dtiSecURL = $dtiSecPath 
+    ? asset('storage/attachments/' . basename($dtiSecPath)) 
+    : null;
+
+$validIdURL = $validIdPath 
+    ? asset('storage/attachments/' . basename($validIdPath)) 
+    : null;
+
+$mailCustomer->Body = "
+<h3>Application Received</h3>
+<p>Thank you {$companyName}</p>
+
+<h4>Uploaded Documents</h4>
+<ul>";
+
+if ($businessPermitURL) {
+    $mailCustomer->Body .= "<li><a href='{$businessPermitURL}'>Business Permit</a></li>";
+}
+if ($dtiSecURL) {
+    $mailCustomer->Body .= "<li><a href='{$dtiSecURL}'>DTI / SEC</a></li>";
+}
+if ($validIdURL) {
+    $mailCustomer->Body .= "<li><a href='{$validIdURL}'>Valid ID</a></li>";
+}
+
+$mailCustomer->Body .= "</ul>";
+
+$mailCustomer->send();
 
 /* =========================
    RESPONSE
@@ -826,10 +877,10 @@ public function submitFilbizUpgrade(Request $request)
     $signatureData = $request->digital_signature;
 
     /* ================= SAVE PDF ================= */
-$cleanName = preg_replace('/[^A-Za-z0-9\- ]/', '', $companyName);
-$cleanName = str_replace(' ', '_', trim($cleanName));
+    $cleanName = preg_replace('/[^A-Za-z0-9\- ]/', '', $companyName);
+    $cleanName = str_replace(' ', '_', trim($cleanName));
 
-$fileName = $cleanName . '_Filbiz_Upgrade.pdf';
+    $fileName = $cleanName . '_Filbiz_Upgrade.pdf';
 
     /* =============================
        GENERATE PDF
@@ -840,9 +891,9 @@ $fileName = $cleanName . '_Filbiz_Upgrade.pdf';
     $pdf->AddPage();
 
     $pdf = new TCPDF('P', 'mm', array(216, 330), true, 'UTF-8', false);
-$pdf->SetMargins(10, 10, 10);
-$pdf->SetAutoPageBreak(TRUE, 15);
-$pdf->AddPage();
+    $pdf->SetMargins(10, 10, 10);
+    $pdf->SetAutoPageBreak(TRUE, 15);
+    $pdf->AddPage();
 
 /* ================= HEADER ================= */
 
