@@ -784,14 +784,19 @@ if (!empty($pdfContent) && !empty($fileName)) {
     $mail->addStringAttachment($pdfContent, $fileName);
 }
 
-// Attach uploaded files (ONLY if small enough)
-if ($businessPermitPath && file_exists($businessPermitPath)) {
+// Business Permit
+if ($businessPermitPath) {
+    $mail->addAttachment(storage_path('app/public/' . $businessPermitPath), 'Business_Permit');
 }
 
-if ($dtiSecPath && file_exists($dtiSecPath)) {
+// DTI / SEC
+if ($dtiSecPath) {
+    $mail->addAttachment(storage_path('app/public/' . $dtiSecPath), 'DTI_SEC');
 }
 
-if ($validIdPath && file_exists($validIdPath)) {
+// Valid ID
+if ($validIdPath) {
+    $mail->addAttachment(storage_path('app/public/' . $validIdPath), 'Valid_ID');
 }
 
 

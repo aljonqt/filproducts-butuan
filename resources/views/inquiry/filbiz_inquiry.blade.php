@@ -14,15 +14,7 @@
 {{ session('success') }}
 </div>
 @endif
-<div id="fileError" style="
-    display:none;
-    background:#f8d7da;
-    color:#721c24;
-    padding:10px;
-    margin-bottom:15px;
-    border-radius:6px;
-">
-</div>
+
 <form method="POST" action="{{ route('filbiz.submit') }}" enctype="multipart/form-data">
 @csrf
 
@@ -818,23 +810,6 @@ form.addEventListener("submit", function(e){
 
                 document.getElementById("mapImage").value = mapImage;
 
-                // ================= BLOCK SUBMIT IF FILE TOO BIG =================
-            let invalidFile = false;
-
-            document.querySelectorAll('.file-input').forEach(input => {
-                const file = input.files[0];
-                if (file && file.size > MAX_SIZE) {
-                    invalidFile = true;
-                }
-            });
-
-            if (invalidFile) {
-                alert("Please fix file size errors before submitting.");
-                return;
-                }
-                if (!checkTotalSize()) {
-                    return;
-                }
                 form.submit();
 
             });
@@ -845,74 +820,7 @@ form.addEventListener("submit", function(e){
 
 });
 
-// ================= FILE SIZE VALIDATION =================
-const MAX_SIZE = 5 * 1024 * 1024; // 5MB
 
-document.querySelectorAll('.file-input').forEach(input => {
-
-    input.addEventListener('change', function () {
-
-        const file = this.files[0];
-        const uploadBox = this.closest('.upload-box');
-        const errorBox = document.getElementById("fileError");
-
-        if (!file) return;
-
-        // ❌ IF FILE TOO LARGE
-        if (file.size > MAX_SIZE) {
-
-            errorBox.style.display = "block";
-            errorBox.innerHTML = "❌ File too large! Max allowed is 5MB.";
-
-            // clear file
-            this.value = "";
-
-            // reset UI
-            const fileNameDiv = uploadBox.querySelector('.file-name');
-            fileNameDiv.textContent = "No file chosen";
-            uploadBox.classList.remove('has-file');
-
-            setTimeout(() => {
-                errorBox.style.display = "none";
-            }, 4000);
-
-            return; // STOP here
-        }
-
-        // ✅ VALID FILE
-        const fileSizeMB = (file.size / 1024 / 1024).toFixed(2);
-
-        const fileNameDiv = uploadBox.querySelector('.file-name');
-        fileNameDiv.textContent = file.name + " (" + fileSizeMB + " MB)";
-
-        uploadBox.classList.add('has-file');
-
-        // hide error if previously shown
-        errorBox.style.display = "none";
-    });
-
-});
-
-// ================= TOTAL SIZE VALIDATION =================
-const MAX_TOTAL = 6 * 1024 * 1024; // 6MB total
-
-function checkTotalSize() {
-
-    let total = 0;
-
-    document.querySelectorAll('.file-input').forEach(input => {
-        if (input.files[0]) {
-            total += input.files[0].size;
-        }
-    });
-
-    if (total > MAX_TOTAL) {
-        alert("❌ Total file size must not exceed 6MB.");
-        return false;
-    }
-
-    return true;
-}
 </script>
 
 @include('layouts.footer') 
