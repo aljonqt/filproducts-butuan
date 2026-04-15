@@ -1,7 +1,7 @@
 @extends('layouts.navbar')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/news.css') }}">
+<link rel="stylesheet" href="{{ asset('public/css/news.css') }}">
 
 <section class="news-page">
     <div class="news-container">
