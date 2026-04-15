@@ -744,33 +744,7 @@ $mail->Body = "
 </div>
 ";
 
-$businessPermitURL = $businessPermitPath 
-    ? asset('storage/' . $businessPermitPath) 
-    : null;
 
-$dtiSecURL = $dtiSecPath 
-    ? asset('storage/' . $dtiSecPath) 
-    : null;
-
-$validIdURL = $validIdPath 
-    ? asset('storage/' . $validIdPath) 
-    : null;
-
-$mail->Body .= "<br><br><h4>Uploaded Documents</h4><ul>";
-
-if ($businessPermitURL) {
-    $mail->Body .= "<li><a href='{$businessPermitURL}'>Business Permit</a></li>";
-}
-
-if ($dtiSecURL) {
-    $mail->Body .= "<li><a href='{$dtiSecURL}'>DTI / SEC</a></li>";
-}
-
-if ($validIdURL) {
-    $mail->Body .= "<li><a href='{$validIdURL}'>Valid ID</a></li>";
-}
-
-$mail->Body .= "</ul>";
 
 /* =========================
    ATTACHMENTS (ADMIN ONLY)
@@ -806,7 +780,7 @@ if ($validIdPath) {
 $mail->send();
 
 /* =========================
-   CUSTOMER EMAIL (NO ATTACHMENTS)
+   CUSTOMER EMAIL
 ========================== */
 
 $mailCustomer = new PHPMailer(true);
@@ -818,35 +792,18 @@ $mailCustomer->addAddress($email);
 $mailCustomer->isHTML(true);
 $mailCustomer->Subject = "Filbiz Application Received";
 
-// Create links
-$businessPermitURL = $businessPermitPath 
-    ? asset('storage/attachments/' . basename($businessPermitPath)) 
-    : null;
 
-$dtiSecURL = $dtiSecPath 
-    ? asset('storage/attachments/' . basename($dtiSecPath)) 
-    : null;
-
-$validIdURL = $validIdPath 
-    ? asset('storage/attachments/' . basename($validIdPath)) 
-    : null;
 
 $mailCustomer->Body = "
 <h3>Application Received</h3>
 <p>Thank you {$companyName}</p>
 
-<h4>Uploaded Documents</h4>
-<ul>";
+<p>Your Filbiz application has been successfully submitted.</p>
+<p>Our team will review your application and contact you shortly.</p>
 
-if ($businessPermitURL) {
-    $mailCustomer->Body .= "<li><a href='{$businessPermitURL}'>Business Permit</a></li>";
-}
-if ($dtiSecURL) {
-    $mailCustomer->Body .= "<li><a href='{$dtiSecURL}'>DTI / SEC</a></li>";
-}
-if ($validIdURL) {
-    $mailCustomer->Body .= "<li><a href='{$validIdURL}'>Valid ID</a></li>";
-}
+<br>
+<p>Fil Products Team</p>
+";
 
 $mailCustomer->Body .= "</ul>";
 
