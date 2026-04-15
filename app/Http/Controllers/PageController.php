@@ -732,8 +732,23 @@ $mail->Body = "
 /* =========================
    ATTACHMENT (SAFE CHECK)
 ========================== */
-if (!empty($pdfContent) && !empty($fileName)) {
-    $mail->addStringAttachment($pdfContent, $fileName);
+$attachments = [
+    'business_permit' => 'Business Permit',
+    'dti_sec' => 'DTI-SEC',
+    'valid_id' => 'Valid ID',
+];
+
+foreach ($attachments as $field => $label) {
+    if ($request->hasFile($field)) {
+        $file = $request->file($field);
+
+        if ($file->isValid()) {
+            $mail->addAttachment(
+                $file->getRealPath(),
+                $label . ' - ' . $file->getClientOriginalName()
+            );
+        }
+    }
 }
 
 /* =========================
