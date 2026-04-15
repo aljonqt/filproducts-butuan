@@ -186,9 +186,27 @@ public function submitComplaint(Request $request)
 }
 
 
+
 // FILBIZ INQUIRY //
 public function submitFilbiz(Request $request)
 {
+
+$request->validate([
+    'companyname' => 'required|string|max:255',
+    'natureofbusiness' => 'required|string',
+    'businessaddress' => 'required|string',
+
+    'first_name' => 'required|string|max:255',
+    'last_name' => 'required|string|max:255',
+    'email' => 'required|email',
+
+    'monthly_subscription' => 'required',
+
+    'business_permit' => 'required|file|mimes:jpg,jpeg,png,pdf|max:5120',
+    'dti_sec' => 'required|file|mimes:jpg,jpeg,png,pdf|max:5120',
+    'valid_id' => 'required|file|mimes:jpg,jpeg,png,pdf|max:5120',
+]);
+
     if(!$request->declaration_agree){
         return back()->withErrors('You must agree to the declaration.');
     }
