@@ -4,8 +4,7 @@
     $isLeyte = request()->routeIs('leyte.*');
 
     /* FACEBOOK LINKS */
-    $fbSamar = "https://m.me/109284174663318";
-    $fbLeyte = "https://m.me/1045229935570610";
+    $fbButuan = "https://m.me/filproductsbutuan";
 @endphp
 
 <!DOCTYPE html>
@@ -13,7 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fil Products Eastern Visayas</title>
+    <title>Fil Products Butuan</title>
     <link rel="icon" type="image/png" href="{{ asset('public/images/fil-products-logo.png') }}">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -91,7 +90,7 @@
     <div id="chat-panel">
         <div class="chat-header">
             <div class="header-user">
-                <img src="{{ asset('images/fil-products-logo.png') }}" alt="Logo">
+                <img src="{{ asset('public/images/fil-products-logo.png') }}" alt="Logo">
                 <div>
                     <strong>Fil Support</strong>
                     <div class="status-wrap"><span class="dot"></span> <small>Online Now</small></div>
@@ -127,11 +126,11 @@
         <div class="modal-body">
             <a href="tel:+639173205871" class="modal-item globe">
                 <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-                <div><strong>Globe</strong><span>0917-320-5871</span></div>
+                <div><strong>Globe</strong><span>0948-921-1463</span></div>
             </a>
             <a href="tel:+639383205871" class="modal-item smart">
                 <span class="icon"><i class="fas fa-mobile-alt"></i></span>
-                <div><strong>Smart</strong><span>0938-320-5871</span></div>
+                <div><strong>Smart</strong><span>0910-245-0720</span></div>
             </a>
         </div>
     </div>
@@ -159,13 +158,9 @@
             <button onclick="closeModal('chatModal')">✕</button>
         </div>
         <div class="modal-body">
-            <a href="{{ $fbSamar }}" target="_blank" class="modal-item samar">
+            <a href="{{ $fbButuan }}" target="_blank" class="modal-item butuan">
                 <span class="icon"><i class="fab fa-facebook-f"></i></span>
-                <div><strong>Fil Products Samar</strong><span>Messenger</span></div>
-            </a>
-            <a href="{{ $fbLeyte }}" target="_blank" class="modal-item leyte">
-                <span class="icon"><i class="fab fa-facebook-f"></i></span>
-                <div><strong>Fil Products Leyte</strong><span>Messenger</span></div>
+                <div><strong>Fil Products Butuan</strong><span>Messenger</span></div>
             </a>
         </div>
     </div>
