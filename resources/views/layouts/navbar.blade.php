@@ -159,7 +159,7 @@
         </div>
         <div class="modal-body">
             <a href="{{ $fbButuan }}" target="_blank" class="modal-item butuan">
-                <span class="icon"><i class="fab fa-facebook-f"></i></span>
+                <span class="icon"><i class="fab fa-facebook-f" style="color:#003366;"></i></span>
                 <div><strong>Fil Products Butuan</strong><span>Messenger</span></div>
             </a>
         </div>
