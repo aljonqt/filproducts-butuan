@@ -816,7 +816,7 @@ return redirect()
     ->route('filbiz.inquiry')
     ->with('success', '
     ✅ Your Filbiz Application has been successfully submitted.<br>
-    📧 A copy has been sent to your email.<br>
+    📧 A copy has been sent to your email.
     Our team will contact you shortly.
     ');
 }
