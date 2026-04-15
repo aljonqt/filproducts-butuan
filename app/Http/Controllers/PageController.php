@@ -97,7 +97,7 @@ public function submitComplaint(Request $request)
         $this->configureSMTP($mail);
 
         $mail->setFrom(env('MAIL_USERNAME'), 'Fil Products Butuan');
-        $mail->addAddress('it.butuan@filproducts.ph');
+        $mail->addAddress('Info.bxu@filproducts.ph');
         $mail->addReplyTo($email, $name);
 
         $mail->isHTML(true);
@@ -297,7 +297,7 @@ $pdf->Cell(216, 7, $branchData['name'], 0, 1, 'C');
 $pdf->SetFont('helvetica', '', 10);
 $pdf->Cell(0, 5, strtoupper($branchData['address']), 0, 1, 'C');
 $pdf->Cell(0, 5, 'CEL. NOS.: ' . $branchData['contact'], 0, 1, 'C');
-$pdf->Cell(0,5,'Email: it.butuan@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
+$pdf->Cell(0,5,'Email: Info.bxu@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
 
 $pdf->Ln(15);
 
@@ -641,7 +641,7 @@ file_put_contents($pdfPath,$pdfContent);
    BRANCH EMAIL MAP
 ========================== */
 $branchEmails = [
-    'butuan' => 'it.butuan@filproducts.ph',
+    'butuan' => 'Info.bxu@filproducts.ph',
 ];
 
 /* =========================
@@ -659,7 +659,7 @@ $subscription = htmlspecialchars($subscription ?? '');
 /* =========================
    DETERMINE RECIPIENT
 ========================== */
-$branchRecipient = $branchEmails[$selectedBranch] ?? 'it.butuan@filproducts.ph';
+$branchRecipient = $branchEmails[$selectedBranch] ?? 'Info.bxu@filproducts.ph';
 
 /* =========================
    SEND EMAIL
@@ -699,7 +699,7 @@ if (!empty($email)) {
 $mail->addAddress($branchRecipient);
 
 /* ✅ ALWAYS SEND TO ADMIN */
-$mail->addCC('it.butuan@filproducts.ph');
+$mail->addCC('Info.bxu@filproducts.ph');
 
 /* =========================
    CONTENT
@@ -751,7 +751,7 @@ $mail->Body = "
 ========================== */
 
 // ONLY attach for admin email
-$mail->addAddress('it.butuan@filproducts.ph');
+$mail->addAddress('Info.bxu@filproducts.ph');
 
 // Attach PDF (optional: keep or remove if large)
 if (!empty($pdfContent) && !empty($fileName)) {
@@ -893,7 +893,7 @@ $pdf->Cell(216, 7, $branchData['name'], 0, 1, 'C');
 $pdf->SetFont('helvetica', '', 10);
 $pdf->Cell(0, 5, strtoupper($branchData['address']), 0, 1, 'C');
 $pdf->Cell(0, 5, 'CEL. NOS.: ' . $branchData['contact'], 0, 1, 'C');
-$pdf->Cell(0,5,'Email: it.butuan@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
+$pdf->Cell(0,5,'Email: Info.bxu@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
 $pdf->Ln(15);
 
 
@@ -1211,7 +1211,7 @@ file_put_contents($pdfPath,$pdfContent);
    FIXED BRANCH (BUTUAN ONLY)
 ========================== */
 $branch = 'Butuan';
-$branchRecipient = 'it.butuan@filproducts.ph';
+$branchRecipient = 'Info.bxu@filproducts.ph';
 
 /* =========================
    SANITIZE INPUT
@@ -1497,7 +1497,7 @@ $pdf->Cell(216, 7, $branchData['name'], 0, 1, 'C');
 $pdf->SetFont('helvetica','',10);
 $pdf->Cell(0, 5, strtoupper($branchData['address']), 0, 1, 'C');
 $pdf->Cell(0, 5, 'CEL. NOS.: ' . $branchData['contact'], 0, 1, 'C');
-$pdf->Cell(0,5,'Email: it.butuan@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
+$pdf->Cell(0,5,'Email: Info.bxu@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
 $pdf->Ln(4);
 
 /* ================= APPLICATION FORM ================= */
@@ -1878,7 +1878,7 @@ file_put_contents($pdfPath,$pdfContent);
    FIXED BRANCH (BUTUAN ONLY)
 ========================== */
 $branch = 'Butuan';
-$branchRecipient = 'it.butuan@filproducts.ph';
+$branchRecipient = 'Info.bxu@filproducts.ph';
 
 /* =========================
    DATA
@@ -2172,7 +2172,7 @@ $pdf->Cell(216, 7, $branchData['name'], 0, 1, 'C');
 $pdf->SetFont('helvetica','',10);
 $pdf->Cell(0, 5, strtoupper($branchData['address']), 0, 1, 'C');
 $pdf->Cell(0, 5, 'CEL. NOS.: ' . $branchData['contact'], 0, 1, 'C');
-$pdf->Cell(0,5,'Email: it.butuan@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
+$pdf->Cell(0,5,'Email: Info.bxu@filproducts.ph | Website: www.butuan.filproducts-cyg.com',0,1,'C');
 $pdf->Ln(4);
 
 /* ================= APPLICATION FORM ================= */
@@ -2451,7 +2451,7 @@ file_put_contents($pdfPath,$pdfContent);
    FIXED BRANCH (BUTUAN ONLY)
 ========================== */
 $branch = 'Butuan';
-$branchRecipient = 'it.butuan@filproducts.ph';
+$branchRecipient = 'Info.bxu@filproducts.ph';
 
 /* =========================
    DATA
