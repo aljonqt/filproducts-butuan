@@ -13,32 +13,9 @@
         </div>
 
         <div class="news-list">
-
             <article class="news-card">
                 <div class="news-image-wrapper">
-                    <img src="{{ asset('images/mondragon.jfif') }}" alt="Mondragon Branch" class="news-image">
-                    <span class="news-date">January 2026</span>
-                </div>
-                <div class="news-content">
-                    <p class="news-location">
-                        <i class="fas fa-map-marker-alt"></i> Mondragon, Northern Samar
-                    </p>
-                    <h3>Fil Products Samar – Mondragon Branch is Now Open</h3>
-                    <p>
-                        We are bringing high-speed fiber closer to you. Visit our new location after Cebuana Lhuillier to experience local support at its best.
-                    </p>
-                    <div class="news-highlight">
-                        Fast • Reliable • Local Support
-                    </div>
-                    <a href="#" class="news-cta">
-                        Visit Our Office <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-            </article>
-
-            <article class="news-card">
-                <div class="news-image-wrapper">
-                    <img src="{{ asset('images/networkexpansion.png') }}" alt="Network Expansion" class="news-image">
+                    <img src="{{ asset('public/images/networkexpansion.png') }}" alt="Network Expansion" class="news-image">
                     <span class="news-date">Active Expansion</span>
                 </div>
                 <div class="news-content">
@@ -57,7 +34,7 @@
 
             <article class="news-card">
                 <div class="news-image-wrapper">
-                    <img src="{{ asset('images/customersupport.png') }}" alt="Customer Support Portal" class="news-image">
+                    <img src="{{ asset('public/images/customersupport.png') }}" alt="Customer Support Portal" class="news-image">
                     <span class="news-date">New Platform</span>
                 </div>
                 <div class="news-content">
