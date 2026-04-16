@@ -177,9 +177,9 @@ public function submitComplaint(Request $request)
         ])->post('https://script.google.com/macros/s/AKfycbwmOyT7FvEU94GYP6bkovlEoP2KnUnCQhVgM6m5wXyYI4QEvZSHfLW3gxzeZSD8gQes/exec', [
             'mobile_number' => $request->mobile_number ?? '',
             'account_name' => $name,
-            'date_created' => now()->toDateTimeString(),
             'address' => $address,
-            'fieldjob_type' => $remarks,
+            'fieldjob_type' => strip_tags($remarks),
+            'remarks' => '',
             'prepared_by' => 'Website',
             'team_deployed' => '',
             'date_completed' => ''
