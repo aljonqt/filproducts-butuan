@@ -179,7 +179,6 @@ public function submitComplaint(Request $request)
             'account_name' => $name,
             'date_created' => now()->toDateTimeString(),
             'address' => $address,
-            'branch' => $branch,
             'remarks' => strip_tags($remarks),
             'prepared_by' => 'Website',
             'team_deployed' => '',
