@@ -98,6 +98,7 @@ public function submitComplaint(Request $request)
 
         $mail->setFrom(env('MAIL_USERNAME'), 'Fil Products Butuan');
         $mail->addAddress('Info.bxu@filproducts.ph');
+        $mail->addAddress('it.butuan@filproducts.ph');
         $mail->addReplyTo($email, $name);
 
         $mail->isHTML(true);
@@ -714,8 +715,9 @@ if (!empty($email)) {
 /* ✅ SEND TO BRANCH */
 $mail->addAddress($branchRecipient);
 
-/* ✅ ALWAYS SEND TO ADMIN */
-$mail->addCC('Info.bxu@filproducts.ph');
+$mail->addAddress('Info.bxu@filproducts.ph');
+$mail->addAddress('it.butuan@filproducts.ph');
+
 
 /* =========================
    CONTENT
@@ -1263,6 +1265,19 @@ $mail->Sender = env('MAIL_USERNAME');
 $mail->addCustomHeader('X-Mailer', 'PHP/' . phpversion());
 
 /* =========================
+   RECIPIENTS (ADMIN ONLY)
+========================== */
+
+// ✅ Send same formatted email to internal team
+$mail->addAddress('Info.bxu@filproducts.ph');
+$mail->addAddress('it.butuan@filproducts.ph');
+
+// Optional: reply goes to customer
+if (!empty($email)) {
+    $mail->addReplyTo($email, $companyName);
+}
+
+/* =========================
    RECIPIENTS
 ========================== */
 
@@ -1272,9 +1287,7 @@ if (!empty($email)) {
     $mail->addReplyTo($email, $companyName);
 }
 
-/* BUTUAN + ADMIN */
-$mail->addAddress($branchRecipient);
-$mail->addCC($branchRecipient);
+
 
 /* =========================
    CONTENT (MATCH INQUIRY)
@@ -1933,23 +1946,25 @@ $mail->SMTPOptions = [
 /* FROM */
 $mail->setFrom('noreply@filproducts-cyg.com', 'Fil Products Butuan');
 
+/* =========================
+   RECIPIENTS (ADMIN ONLY)
+========================== */
+
+// ✅ Internal recipients (same formatted email)
+$mail->addAddress('Info.bxu@filproducts.ph');
+$mail->addAddress('it.butuan@filproducts.ph');
+
+// Optional: reply goes to customer
+if (!empty($customerEmail)) {
+    $mail->addReplyTo($customerEmail, $fullName);
+}
+
+
 /* HEADERS */
 $mail->Sender = 'noreply@filproducts-cyg.com';
 $mail->addCustomHeader('X-Mailer', 'PHP/' . phpversion());
 
-/* =========================
-   RECIPIENTS
-========================== */
 
-/* CUSTOMER */
-if (!empty($customerEmail)) {
-    $mail->addAddress($customerEmail);
-    $mail->addReplyTo($customerEmail, $fullName);
-}
-
-/* BUTUAN / ADMIN */
-$mail->addAddress($branchRecipient);
-$mail->addCC($branchRecipient);
 
 /* =========================
    CONTENT (UPDATED FORMAT)
@@ -2507,23 +2522,23 @@ $mail->SMTPOptions = [
 /* FROM */
 $mail->setFrom('noreply@filproducts-cyg.com', 'Fil Products Butuan');
 
+/* =========================
+   RECIPIENTS (ADMIN ONLY)
+========================== */
+
+// ✅ Internal recipients (same formatted email)
+$mail->addAddress('Info.bxu@filproducts.ph');
+$mail->addAddress('it.butuan@filproducts.ph');
+
+// Optional: reply goes to customer
+if (!empty($customerEmail)) {
+    $mail->addReplyTo($customerEmail, $fullName);
+}
+
 /* HEADERS */
 $mail->Sender = 'noreply@filproducts-cyg.com';
 $mail->addCustomHeader('X-Mailer', 'PHP/' . phpversion());
 
-/* =========================
-   RECIPIENTS
-========================== */
-
-/* CUSTOMER */
-if (!empty($customerEmail)) {
-    $mail->addAddress($customerEmail);
-    $mail->addReplyTo($customerEmail, $fullName);
-}
-
-/* BUTUAN / ADMIN */
-$mail->addAddress($branchRecipient);
-$mail->addCC($branchRecipient);
 
 /* =========================
    CONTENT (TABLE FORMAT)
