@@ -179,7 +179,7 @@ public function submitComplaint(Request $request)
             'account_name' => $name,
             'address' => $address,
             'fieldjob_type' => strip_tags($remarks),
-            'remarks' => '',
+            'remarks' => 'strip_tags($remarks)',
             'prepared_by' => 'Website',
             'team_deployed' => '',
             'date_completed' => ''
