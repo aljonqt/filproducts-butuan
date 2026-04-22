@@ -153,7 +153,6 @@
 
 <label class="plan-card">
 <input type="radio" name="monthly_subscription" value="50Mbps PHP 799" required>
-<h4>Starter</h4>
 <p class="speed">50 Mbps</p>
 <span class="price">₱799</span>
 <p class="plan-desc">Free Premium Cable TV</p>
@@ -161,7 +160,6 @@
 
 <label class="plan-card">
 <input type="radio" name="monthly_subscription" value="80Mbps PHP 899">
-<h4>Basic</h4>
 <p class="speed">80 Mbps</p>
 <span class="price">₱899</span>
 <p class="plan-desc">Free Premium Cable TV</p>
@@ -169,15 +167,13 @@
 
 <label class="plan-card">
 <input type="radio" name="monthly_subscription" value="100Mbps PHP 999">
-<h4>Standard</h4>
 <p class="speed">100 Mbps</p>
 <span class="price">₱999</span>
 <p class="plan-desc">Free Premium Cable TV</p>
 </label>
 
 <label class="plan-card">
-<input type="radio" name="monthly_subscription" value="150Mbps PHP 1199">
-<h4>Advanced</h4>
+<input type="radio" name="monthly_subscription" value="150Mbps PHP 1,199">
 <p class="speed">150 Mbps</p>
 <span class="price">₱1,199</span>
 <p class="plan-desc">Free Premium Cable TV</p>
@@ -185,7 +181,6 @@
 
 <label class="plan-card">
 <input type="radio" name="monthly_subscription" value="250Mbps PHP 1,299">
-<h4>Premium</h4>
 <p class="speed">250 Mbps</p>
 <span class="price">₱1,299</span>
 <p class="plan-desc">Free Premium Cable TV</p>
@@ -193,10 +188,86 @@
 
 <label class="plan-card">
 <input type="radio" name="monthly_subscription" value="300Mbps PHP 1,499">
-<h4>Ultra</h4>
 <p class="speed">300 Mbps</p>
 <span class="price">₱1,499</span>
 <p class="plan-desc">Free Premium Cable TV</p>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="200Mbps PHP 1,250">
+<div class="speed">200 Mbps</div>
+<div class="price">₱1,250</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="350Mbps PHP 1,690">
+<div class="speed">350 Mbps</div>
+<div class="price">₱1,690</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="350Mbps PHP 1,799">
+<div class="speed">350 Mbps</div>
+<div class="price">₱1,799</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="400Mbps PHP 1,999">
+<div class="speed">400 Mbps</div>
+<div class="price">₱1,999</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 2,000">
+<div class="speed">500 Mbps</div>
+<div class="price">₱2,000</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 2,400">
+<div class="speed">500 Mbps</div>
+<div class="price">₱2,400</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 2,750">
+<div class="speed">500 Mbps</div>
+<div class="price">₱2,750</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 3,000">
+<div class="speed">500 Mbps</div>
+<div class="price">₱3,000</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 3,800">
+<div class="speed">500 Mbps</div>
+<div class="price">₱3,800</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 6,000">
+<div class="speed">500 Mbps</div>
+<div class="price">₱6,000</div>
+<div class="plan-desc">Free Premium Cable TV</div>
+</label>
+
+<label class="plan-card">
+<input type="radio" name="monthly_subscription" value="500Mbps PHP 9,000">
+<div class="speed">500 Mbps</div>
+<div class="price">₱9,000</div>
+<div class="plan-desc">Free Premium Cable TV</div>
 </label>
 
 </div>
@@ -535,6 +606,7 @@ form.addEventListener("submit",function(e){
 </form>
 </div>
 </div>
+
 @include('layouts.footer') 
 
 @endsection
