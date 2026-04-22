@@ -63,6 +63,9 @@
             <a href="{{ route('branch') }}" class="nav-btn {{ request()->routeIs('branch') ? 'active' : '' }}">
                 <i class="fas fa-map-marker-alt"></i> <span>Branches</span>
             </a>
+            <a href="{{ route('faq') }}" class="nav-btn {{ request()->routeIs('faq') ? 'active' : '' }}">
+            <i class="fas fa-circle-question"></i> FAQ
+            </a>
 
             <a href="{{ route('about') }}" class="nav-btn {{ request()->routeIs('about') ? 'active' : '' }}">
                 <i class="fas fa-info-circle"></i> <span>About</span>
